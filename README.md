@@ -10,5 +10,5 @@
 
 ```bash
 yarn global add docsify-cli
-docsify serve docs
+docsify serve
 ```
