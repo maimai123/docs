@@ -50,6 +50,26 @@ const WeekType = {
   /* 星期天 **/
   SUN: 7
 }
+
+export const WEEK_STATUS = new Map([
+  [1, '星期一'],
+  [2, '星期二'],
+  [3, '星期三'],
+  [4, '星期四'],
+  [5, '星期五'],
+  [6, '星期六'],
+  [7, '星期天'],
+]);
+
+export enum WEEK_TYPE {
+  'MON' = 1,
+  'TUE' = 2,
+  'WED' = 3,
+  'THU' = 4,
+  'FRI' = 5,
+  'SAT' = 6,
+  'SUN' = 7,
+}
 ```
 
 ## 如何用枚举和常量替换魔术数字
@@ -110,11 +130,11 @@ class SomeComponent extends React.Component {
  * 警报功能的报警方式
  * @enum{number}
  **/
-const AlertType = {
+export enum ALERT_TYPE {
   /* 钉钉 **/
-  DINGTALK: 1,
+  DINGTALK = 1,
   /* 邮件 **/
-  MAIL: 2
+  MAIL = 2
 }
 // ...
 // ...

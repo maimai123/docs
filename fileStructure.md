@@ -26,6 +26,7 @@ Home
 ```
 入口文件：index.jsx和index.less
 变量和枚举文件：constant.js
+页面组件：components
 工具类：utils.js
 store：store.js
 ```

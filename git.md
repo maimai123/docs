@@ -3,7 +3,7 @@
 ## 分支模型
 
 - master：生产分支
-- ~~develop：开发分支~~
+- dev：开发分支~~
 - hotfix：紧急发布分支，从 master 切出来的分支
 - release：版本发布分支，从 master 切出来的分支
 - feature：功能开发分支，从 master 切出来的分支

@@ -11,14 +11,13 @@
 ```js
 // React
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
 
 // 框架
 import { Button, Select } from 'antd'
 
 // 其他第三方库
 import _ from 'loadsh'
-import classNames from 'classNames'
+import classnames from 'classnames'
 
 // 项目公共库
 import utils from 'src/lib/utils'
@@ -27,22 +26,22 @@ import utils from 'src/lib/utils'
 import Loading from 'src/components/Loading'
 
 // 页面组件
-import Search from './Search'
-import Table from './Table'
+import Search from './components/Search'
+import Table from './components/Table'
 
-// Mobx Store
+// Store
 import store from './store'
-
-// 样式
-import styles from './index.less'
 
 // 图片
 import bg from './images/bg.png'
 
+// 样式
+import styles from './index.less'
+
 // 变量声明
 const Option = Select.Option
 
-@observer
+
 class Home extends Components {
   componentDidMount() {
     store.fetchList()

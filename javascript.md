@@ -86,7 +86,7 @@
   ```js
   // ✗ avoid
   var x = 2
-  var message = 'hello, ' + name + '!'
+  var message = 'hello, '+name+'!'
   ```
 
 - **逗号后面加空格**。
@@ -122,7 +122,8 @@
   // ✗ avoid
   if (condition) {
     // ...
-  } else {
+  }
+  else {
     // ...
   }
   ```
@@ -145,7 +146,8 @@
 
   ```js
   // ✗ avoid
-  if (options.quiet !== true) console.log('done')
+  if (options.quiet !== true)
+  console.log('done')
   ```
 
 - **不要丢掉**异常处理中`err`参数。
@@ -167,15 +169,6 @@
   })
   ```
 
-- **使用浏览器全局变量时加上** `window.` 前缀。<br>
-  Exceptions are: `document`, `console` and `navigator`.
-
-  eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef)
-
-  ```js
-  window.alert('hi') // ✓ ok
-  ```
-
 - **不允许有连续多行空行**。
 
   eslint: [`no-multiple-empty-lines`](http://eslint.org/docs/rules/no-multiple-empty-lines)
@@ -188,7 +181,7 @@
 
   ```js
   // ✗ avoid
-  var value = 'hello world'
+  var value =     'hello world'
   ```
 
 console.log(value)
@@ -227,9 +220,6 @@ var location = env.development ?
   var silent = true,
     verbose = true
 
-  // ✗ avoid
-  var silent = true,
-    verbose = true
   ```
 
 - **条件语句中赋值语句**使用括号包起来。这样使得代码更加清晰可读，而不会认为是将条件判断语句的全等号（`===`）错写成了等号（`=`）。
@@ -243,7 +233,7 @@ var location = env.development ?
   }
 
   // ✗ avoid
-  while ((m = text.match(expr))) {
+  while (m = text.match(expr)) {
     // ...
   }
   ```
@@ -273,16 +263,6 @@ var location = env.development ?
   var myVar = 'hello' // ✓ ok
   ```
 
-- **不允许有多余的行末逗号**。
-
-  eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
-
-  ```js
-  var obj = {
-    message: 'hello' // ✗ avoid
-  }
-  ```
-
 - **始终将逗号置于行末**。
 
   eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style)
@@ -295,41 +275,21 @@ var location = env.development ?
 
   var obj = {
     foo: 'foo',
-    bar: 'bar' // ✓ ok
+    bar: 'bar', // ✓ ok
   }
-  ```
-
-- **点号操作符须与属性需在同一行**。
-
-  eslint: [`dot-location`](http://eslint.org/docs/rules/dot-location)
-
-  ```js
-  console.log('hello') // ✗ avoid
-
-  console.log('hello') // ✓ ok
   ```
 
 - **文件末尾留一空行**。
 
   eslint: [`eol-last`](http://eslint.org/docs/rules/eol-last)
 
-- **函数调用时标识符与括号间不留间隔**。
-
-  eslint: [`func-call-spacing`](http://eslint.org/docs/rules/func-call-spacing)
-
-  ```js
-  console.log('hello') // ✗ avoid
-  console.log('hello') // ✓ ok
-  ```
 
 - **键值对当中冒号与值之间要留空白**。
 
   eslint: [`key-spacing`](http://eslint.org/docs/rules/key-spacing)
 
   ```js
-  var obj = { key: 'value' } // ✗ avoid
-  var obj = { key: 'value' } // ✗ avoid
-  var obj = { key: 'value' } // ✗ avoid
+  var obj = { key:'value' } // ✗ avoid
   var obj = { key: 'value' } // ✓ ok
   ```
 
@@ -342,16 +302,6 @@ var location = env.development ?
   var dog = new animal() // ✗ avoid
 
   function Animal() {}
-  var dog = new Animal() // ✓ ok
-  ```
-
-- **无参的构造函数调用时要带上括号**。
-
-  eslint: [`new-parens`](http://eslint.org/docs/rules/new-parens)
-
-  ```js
-  function Animal() {}
-  var dog = new Animal() // ✗ avoid
   var dog = new Animal() // ✓ ok
   ```
 
@@ -384,8 +334,7 @@ var location = env.development ?
 
   ```js
   class Dog {
-    constructor() {
-      super() // ✗ avoid
+    constructor() { // ✗ avoid
     }
   }
 
@@ -462,15 +411,6 @@ var location = env.development ?
   }
   ```
 
-- **正则中不要使用控制符**。
-
-  eslint: [`no-control-regex`](http://eslint.org/docs/rules/no-control-regex)
-
-  ```js
-  var pattern = /\x1f/ // ✗ avoid
-  var pattern = /\x20/ // ✓ ok
-  ```
-
 - **不要使用 `debugger`**。
 
   eslint: [`no-debugger`](http://eslint.org/docs/rules/no-debugger)
@@ -489,6 +429,7 @@ var location = env.development ?
   ```js
   var name
   delete name // ✗ avoid
+  name = null // ✓ ok
   ```
 
 - **不要定义冗余的函数参数**。
@@ -601,14 +542,6 @@ var location = env.development ?
   }
   ```
 
-- **不要扩展原生对象**。
-
-  eslint: [`no-extend-native`](http://eslint.org/docs/rules/no-extend-native)
-
-  ```js
-  Object.prototype.age = 21 // ✗ avoid
-  ```
-
 - **避免多余的函数上下文绑定**。
 
   eslint: [`no-extra-bind`](http://eslint.org/docs/rules/no-extra-bind)
@@ -641,14 +574,6 @@ var location = env.development ?
   }
   ```
 
-- **不要使用多余的括号包裹函数**。
-
-  eslint: [`no-extra-parens`](http://eslint.org/docs/rules/no-extra-parens)
-
-  ```js
-  const myFunc = function() {} // ✗ avoid
-  const myFunc = function() {} // ✓ ok
-  ```
 
 - **`switch` 一定要使用 `break` 来将条件分支正常中断**。
 
@@ -850,13 +775,6 @@ var location = env.development ?
   const myModule = new require('my-module') // ✗ avoid
   ```
 
-- **禁止使用 `Symbol` 构造器**。
-
-  eslint: [`no-new-symbol`](http://eslint.org/docs/rules/no-new-symbol)
-
-  ```js
-  const foo = new Symbol('foo') // ✗ avoid
-  ```
 
 - **禁止使用原始包装器**。
 
@@ -938,7 +856,7 @@ var location = env.development ?
 
   ```js
   function sum(a, b) {
-    return (result = a + b) // ✗ avoid
+    return result = a + b // ✗ avoid
   }
 
   function sum(a, b) {
@@ -1123,27 +1041,16 @@ var location = env.development ?
 
   eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-  ```js
-  let message = 'Hello' // ✗ avoid
-  ```
 
 - **import, export 和解构操作中，禁止赋值到同名变量**。
 
   eslint: [`no-useless-rename`](http://eslint.org/docs/rules/no-useless-rename)
 
-  ```js
-  import { config } from './config' // ✗ avoid
-  import { config } from './config' // ✓ ok
-  ```
 
 - **属性前面不要加空格**。
 
   eslint: [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
-  ```js
-  user.name // ✗ avoid
-  user.name // ✓ ok
-  ```
 
 - **禁止使用 `with`**。
 
@@ -1159,8 +1066,7 @@ var location = env.development ?
 
   ```js
   const user = {
-    name: 'Jane Doe',
-    age: 30,
+    name: 'Jane Doe', age: 30,
     username: 'jdoe86' // ✗ avoid
   }
 
@@ -1169,7 +1075,7 @@ var location = env.development ?
   const user = {
     name: 'Jane Doe',
     age: 30,
-    username: 'jdoe86'
+    username: 'jdoe86',
   } // ✓ ok
   ```
 
@@ -1192,10 +1098,6 @@ var location = env.development ?
 
   eslint: [`rest-spread-spacing`](http://eslint.org/docs/rules/rest-spread-spacing)
 
-  ```js
-  fn(...args) // ✗ avoid
-  fn(...args) // ✓ ok
-  ```
 
 - **遇到分号时空格要后留前不留**。
 
@@ -1220,7 +1122,7 @@ var location = env.development ?
   eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens)
 
   ```js
-  getName(name) // ✗ avoid
+  getName( name ) // ✗ avoid
   getName(name) // ✓ ok
   ```
 
@@ -1228,10 +1130,6 @@ var location = env.development ?
 
   eslint: [`space-unary-ops`](http://eslint.org/docs/rules/space-unary-ops)
 
-  ```js
-  typeof !admin // ✗ avoid
-  typeof !admin // ✓ ok
-  ```
 
 - **注释首尾留空格**。
 
@@ -1250,7 +1148,7 @@ var location = env.development ?
   eslint: [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing)
 
   ```js
-  const message = `Hello, ${name}` // ✗ avoid
+  const message = `Hello, ${ name }` // ✗ avoid
   const message = `Hello, ${name}` // ✓ ok
   ```
 
@@ -1279,9 +1177,6 @@ var location = env.development ?
   eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife)
 
   ```js
-  const getName = (function() {})() // ✗ avoid
-
-  const getName = (function() {})() // ✓ ok
   const getName = (function() {})() // ✓ ok
   ```
 
@@ -1290,7 +1185,7 @@ var location = env.development ?
   eslint: [`yield-star-spacing`](http://eslint.org/docs/rules/yield-star-spacing)
 
   ```js
-  yield * increment() // ✗ avoid
+  yield* increment() // ✗ avoid
   yield * increment() // ✓ ok
   ```
 
@@ -1313,7 +1208,7 @@ var location = env.development ?
 
   ```js
   window.alert('hi') // ✓ ok
-  window.alert('hi') // ✗ avoid
+  window.alert('hi'); // ✗ avoid
   ```
 
 - 不要使用 `(`, `[`, or `` ` `` 等作为一行的开始。在没有分号的情况下代码压缩后会导致报错，而坚持这一规范则可避免出错。
@@ -1408,8 +1303,8 @@ var location = env.development ?
 > 那么完全可以这样来写：
 >
 > ```js
-> foo()
-> ;[1, 2, 3].forEach(bar)
+> foo();
+> [1, 2, 3].forEach(bar)
 > ```
 >
 > 后者的好处是分号比较瞩目，一旦习惯后便再也不会看到以 `(` 和 `[` 开头又不带分号的语句了。
