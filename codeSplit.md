@@ -80,3 +80,14 @@ export default Home
 > 不觉得页面代码过长上下翻页都很费劲吗？
 
 ### <span style="color: red;">总之，没有死规则，代码拆解视具体情况而定，尽量做到代码工整、一目了然、单文件代码量少、易阅读、易理解</span>
+
+### 语义化标签
+
+HTML5 中新增很多语义化标签，所以优先使用语义化标签，避免一个页面都是 div 或者 p 标签
+
+正例
+
+```html
+<header></header>
+<footer></footer>
+```

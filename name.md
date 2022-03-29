@@ -28,16 +28,21 @@ un = 'A Person Name' // .....
 // good
 userName = 'A Person Name'
 ```
+#### 项目命名
+
+全部采用小写方式， 以中划线分隔。
+
+正例：`mall-management-system`
+
+反例：`mall_management-system / mallManagementSystem`
 
 ## 文件名
 
-> 文件夹的命名规则与文件夹的内容有关。
+全部采用小写方式， 以中划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数
 
-#### `export default`出的公共方法
+正例： `scripts / styles / components / images / utils / layouts / demo-styles / demo-scripts / img / doc`
 
-Camel Case，小驼峰。
-
-> 保证文件与默认导出的函数名一致
+反例： `script / style / demo_scripts / demoStyles / imgs / docs`
 
 #### React 组件
 
@@ -86,6 +91,41 @@ mock数据：mock
 #### 其它情况
 
 使用短横线命名法。
+
+#### 命名严谨性
+
+代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。 说明：正确的英文拼写和语法可以让阅读者易于理解，避免歧义。注意，即使纯拼音命名方式也要避免采用
+
+正例：`henan / luoyang / rmb 等国际通用的名称，可视同英文。`
+
+反例：`DaZhePromotion [打折] / getPingfenByName() [评分] / int 某变量 = 3`
+
+
+#### HTML
+
+推荐使用 HTML5 的文档类型申明： <!DOCTYPE html>.
+（建议使用 text/html 格式的 HTML。避免使用 XHTML。XHTML 以及它的属性，比如 application/xhtml+xml 在浏览器中的应用支持与优化空间都十分有限）。
+
+- 规定字符编码
+- IE 兼容模式
+- 规定字符编码
+- doctype 大写
+
+正例：
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8" />
+    <title>Page title</title>
+  </head>
+  <body>
+    <img src="images/company-logo.png" alt="Company" />
+  </body>
+</html>
+```
 
 ## JavaScript
 
@@ -312,15 +352,64 @@ const userList = []
 
 #### CSS 类名
 
-使用 kebab 命名法（中划线分割单词）
+- 类名使用小写字母，以中划线分隔
+- id 采用驼峰式命名
+- scss 中的变量、函数、混合、placeholder 采用驼峰式命名
 
+ID 和 class 的名称总是使用可以反应元素目的和用途的名称，或其他通用的名称，代替表象和晦涩难懂的名称
+
+不推荐：
 ```css
-.foo-bar {
-  margin-left: 10px;
+.fw-800 {
+  font-weight: 800;
+}
+
+.red {
+  color: red;
+}
+```
+推荐:
+```
+.heavy {
+  font-weight: 800;
+}
+
+.important {
+  color: red;
 }
 ```
 
+#### 尽量使用缩写属性
+
+不推荐：
+
+```css
+border-top-style: none;
+font-family: palatino, georgia, serif;
+font-size: 100%;
+line-height: 1.6;
+padding-bottom: 2em;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0;
+```
+
+推荐：
+
+```css
+border-top: 0;
+font: 100%/1.6 palatino, georgia, serif;
+padding: 0 1em 2em;
+```
+
 #### cssModules
+
+
+1)css 选择器中避免使用标签名
+从结构、表现、行为分离的原则来看，应该尽量避免 css 中出现 HTML 标签，并且在 css 选择器中出现标签名会存在潜在的问题。
+
+2)很多前端开发人员写选择器链的时候不使用 直接子选择器（注：直接子选择器和后代选择器的区别）。有时，这可能会导致疼痛的设计问题并且有时候可能会很耗性能。然而，在任何情况下，这是一个非常不好的做法。如果你不写很通用的，需要匹配到 DOM 末端的选择器， 你应该总是考虑直接子选择器。
+
 
 ```jsx
 import styles from './style.less'
@@ -331,6 +420,115 @@ const foo = () => {
   return <div className={styles.areYouOk} />
 }
 ```
+
+不推荐:
+
+```css
+.content .title {
+  font-size: 2rem;
+}
+```
+
+推荐:
+
+```css
+.content > .title {
+  font-size: 2rem;
+}
+```
+
+#### 每个选择器及属性独占一行
+不推荐：
+```
+button{
+  width:100px;height:50px;color:#fff;background:#00a0e9;
+}
+```
+推荐：
+```
+button{
+  width:100px;
+  height:50px;
+  color:#fff;
+  background:#00a0e9;
+}
+```
+#### 省略0后面的单位
+不推荐：
+```
+div{
+  padding-bottom: 0px;
+  margin: 0em;
+}
+```
+推荐：
+```
+div{
+  padding-bottom: 0;
+  margin: 0;
+}
+```
+
+#### 避免使用ID选择器及全局标签选择器防止污染全局样式
+不推荐：
+```css
+#header{
+  padding-bottom: 0px;
+  margin: 0em;
+}
+```
+推荐：
+```
+.header{
+  padding-bottom: 0px;
+  margin: 0em;
+}
+```
+
+### LESS 规范
+
+#### 代码组织
+##### 1)将公共less文件放置在style/less/common文件夹
+例:// color.less,common.less
+
+
+##### 2)按以下顺序组织
+1、@import;
+2、变量声明;
+3、样式声明;
+```
+@import "mixins/size.less";
+
+@default-text-color: #333;
+
+.page {
+  width: 960px;
+  margin: 0 auto;
+}
+```
+#### 1.4.2 避免嵌套层级过多
+ 将嵌套深度限制在3级。对于超过4级的嵌套，给予重新评估。这可以避免出现过于详实的CSS选择器。
+避免大量的嵌套规则。当可读性受到影响时，将之打断。推荐避免出现多于20行的嵌套规则出现
+
+不推荐：
+```less
+.main{
+  .title{
+    .name{
+       color:#fff
+    }
+  }
+}
+```
+推荐：
+```
+.main-title{
+   .name{
+      color:#fff
+   }
+}
+```
+
 
 #### Vue style 块中的类名
 
